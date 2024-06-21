@@ -17,30 +17,34 @@
 
         <div class="container-fluid ">
 
-            <div align="center" style="padding: 100px 250px;">
-                <table>
-                    <tr align="center" style="background-color: rgb(164, 241, 234);">
-                        <th style="color: black; padding: 15px; font-size: 200">Customer Name</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Email</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Phone</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Doctor Name</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Date</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Message</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Status</th>
-                        <th style="color: black; padding: 15px; font-size: 200">Action</th>
+            <div align="center" style="padding: 100px 20px;">
+                <table style="width: 100%">
+                    <tr align="center" style="background-color: #53596d;font: bold;">
+                        <th style="padding: 15px; font-size: 200">Customer Name</th>
+                        <th style="padding: 15px; font-size: 200">Email</th>
+                        <th style="padding: 15px; font-size: 200">Phone</th>
+                        <th style="padding: 15px; font-size: 200">Doctor Name</th>
+                        <th style="padding: 15px; font-size: 200">Date</th>
+                        <th style="padding: 15px; font-size: 200">Message</th>
+                        <th style="padding: 15px; font-size: 200">Status</th>
+                        <th style="padding: 0px; font-size: 200">Action</th>
+                        <th style="padding: 15px; font-size: 200">Send Mail</th>
                     </tr>
                     @foreach ($data as $datas)
                         <tr align="center" style="background-color: rgb(179, 224, 219);color:black;">
-                            <td style="padding:10px;">{{ $datas->name }}</td>
-                            <td>{{ $datas->email }}</td>
-                            <td>{{ $datas->phone }}</td>
-                            <td>{{ $datas->doctor }}</td>
-                            <td>{{ $datas->date }}</td>
-                            <td>{{ $datas->message }}</td>
-                            <td>{{ $datas->status }}</td>
-                            <td style="">
+                            <td style="width: 200px;padding: 10px">{{ $datas->name }}</td>
+                            <td style="width: 200px;">{{ $datas->email }}</td>
+                            <td style="width: 200px;">{{ $datas->phone }}</td>
+                            <td style="width: 200px;">{{ $datas->doctor }}</td>
+                            <td style="width: 200px;">{{ $datas->date }}</td>
+                            <td style="width: 200px;">{{ $datas->message }}</td>
+                            <td style="width: 100px;">{{ $datas->status }}</td>
+                            <td style="width: 300px;">
                                 <a href="{{url('approve',$datas->id)}}" class="btn btn-success" >Accept</a> - 
                                 <a href="{{url('cancel',$datas->id)}}" class="btn btn-danger">Cancel</a>
+                            </td>
+                            <td style="width: 200px;">
+                                <a href="{{url('emailview',$datas->id)}}" class="btn btn-primary">Send Mail</a>
                             </td>
                         </tr>
                     @endforeach
